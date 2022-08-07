@@ -1,9 +1,9 @@
-import './App.css';
 import UserContextProvider from './contexts/UserContext';
+import Login from './pages/Login';
 function App() {
   return (
     <UserContextProvider>
-      <div>SuperHero App</div>
+      <Login></Login>
     </UserContextProvider>
   );
 }
