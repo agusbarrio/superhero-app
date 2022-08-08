@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import { Container, Grid } from '@mui/material';
-
+import Header from '../../components/Header';
 /**
  *  Template for login page.
  * @param {*} param0
  * @returns
  */
-function Login({ mainContent, headerContent }) {
+function Login({ children }) {
   return (
     <Grid
       container
@@ -17,7 +17,7 @@ function Login({ mainContent, headerContent }) {
       }}
     >
       <Grid item xs={12} sx={{ height: '4rem' }}>
-        {headerContent}
+        <Header />
       </Grid>
       <Grid
         item
@@ -27,7 +27,7 @@ function Login({ mainContent, headerContent }) {
         }}
       >
         <Container maxWidth="xs" sx={{ height: '100%' }}>
-          {mainContent}
+          {children}
         </Container>
       </Grid>
     </Grid>

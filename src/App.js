@@ -1,5 +1,5 @@
 import UserContextProvider from './contexts/UserContext';
-import Login from './pages/Login';
+import Login from './templates/Login';
 function App() {
   return (
     <UserContextProvider>
