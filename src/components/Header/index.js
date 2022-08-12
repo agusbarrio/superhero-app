@@ -1,10 +1,6 @@
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import PropTypes from 'prop-types';
-/**
- * Header component
- * @param {*} param0
- * @returns
- */
+
 function Header({ logoutButton = false }) {
   return (
     <AppBar position="static" sx={{ height: 1 }}>

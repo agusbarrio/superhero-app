@@ -11,4 +11,4 @@ export function UserContextProvider({ children }) {
   );
 }
 
-export default UserContextProvider;
+export default UserContext;

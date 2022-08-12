@@ -1,12 +1,8 @@
-import PropTypes from 'prop-types';
 import { Container, Grid } from '@mui/material';
+import PropTypes from 'prop-types';
 import Header from '../../components/Header';
-/**
- *  Template for login page.
- * @param {*} param0
- * @returns
- */
-function Login({ children }) {
+
+function PublicLayout({ children }) {
   return (
     <Grid
       container
@@ -26,16 +22,22 @@ function Login({ children }) {
           height: 'calc(100% - 4rem)',
         }}
       >
-        <Container maxWidth="xs" sx={{ height: '100%' }}>
+        <Container
+          maxWidth="xs"
+          sx={{
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
           {children}
         </Container>
       </Grid>
     </Grid>
   );
 }
-
-Login.propTypes = {
-  mainContent: PropTypes.any,
-  headerContent: PropTypes.any,
+PublicLayout.propTypes = {
+  children: PropTypes.any,
 };
-export default Login;
+export default PublicLayout;
