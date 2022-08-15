@@ -3,7 +3,7 @@ import SubmitButton from '../../components/SubmitButton';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function BasicForm({ children, title, textSubmitButton }) {
+function BasicForm({ children, title, textSubmitButton, textError }) {
   return (
     <Grid
       container
@@ -13,7 +13,7 @@ function BasicForm({ children, title, textSubmitButton }) {
         justifyContent: 'center',
       }}
     >
-      {!!title && (
+      {Boolean(title) && (
         <Grid
           item
           xs={12}
@@ -39,7 +39,7 @@ function BasicForm({ children, title, textSubmitButton }) {
       >
         {children}
       </Grid>
-      {!!textSubmitButton && (
+      {Boolean(textSubmitButton) && (
         <Grid
           item
           xs={12}
@@ -49,6 +49,20 @@ function BasicForm({ children, title, textSubmitButton }) {
           }}
         >
           <SubmitButton>{textSubmitButton}</SubmitButton>
+        </Grid>
+      )}
+      {Boolean(textError) && (
+        <Grid
+          item
+          xs={12}
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <Typography variant="subtitle1" color="error">
+            {textError}
+          </Typography>
         </Grid>
       )}
     </Grid>

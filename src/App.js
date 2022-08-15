@@ -1,12 +1,9 @@
 import { UserContextProvider } from './contexts/UserContext';
-import PublicLayout from './templates/PublicLayout';
-import LoginForm from './components/LoginForm';
+import LoginView from './views/LoginView';
 function App() {
   return (
     <UserContextProvider>
-      <PublicLayout>
-        <LoginForm></LoginForm>
-      </PublicLayout>
+      <LoginView></LoginView>
     </UserContextProvider>
   );
 }

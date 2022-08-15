@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
-import { useMemo } from 'react';
 import BasicInput from '../../templates/BasicInput';
-import { useFormikContext } from 'formik';
-
+import { FastField } from 'formik';
 function ControllerInput({
   render: Input,
   template: Template = BasicInput,
@@ -11,23 +9,24 @@ function ControllerInput({
   placeholder,
   ...props
 }) {
-  const { errors, touched, values, handleChange } = useFormikContext();
-  const errorState = useMemo(
-    () => touched[name] && !!errors[name],
-    [touched, errors, name]
-  );
   return (
     <Template>
-      <Input
-        {...props}
-        name={name}
-        value={values[name]}
-        errorState={errorState}
-        helperText={errorState && errors[name]}
-        label={label}
-        placeholder={placeholder}
-        onChange={handleChange}
-      />
+      <FastField name={name}>
+        {({ field, meta }) => {
+          return (
+            <Input
+              {...props}
+              onChange={field.onChange}
+              name={field.name}
+              value={field.value}
+              errorState={meta.touched && Boolean(meta.error)}
+              helperText={meta.touched && meta.error}
+              label={label}
+              placeholder={placeholder}
+            />
+          );
+        }}
+      </FastField>
     </Template>
   );
 }

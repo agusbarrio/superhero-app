@@ -5,7 +5,16 @@ import TextInput from '../TextInput';
 import PasswordInput from '../PasswordInput';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-function LoginForm({ onSubmit }) {
+
+function LoginForm({
+  onSubmit,
+  template,
+  templateProps = {
+    title: 'Iniciar sesion',
+    textSubmitButton: 'Ingresar',
+    textError: 'Ha ocurrido un error',
+  },
+}) {
   const schema = Yup.object({
     email: Yup.string()
       .email('El email ingresado no es válido')
@@ -20,10 +29,9 @@ function LoginForm({ onSubmit }) {
     <Form
       schema={schema}
       defaultValues={{ password: '', email: '' }}
-      onSubmit={(data) => {
-        if (_.isFunction(onSubmit)) onSubmit(data);
-      }}
-      templateProps={{ title: 'Iniciar sesion', textSubmitButton: 'Ingresar' }}
+      onSubmit={onSubmit}
+      templateProps={templateProps}
+      template={template}
     >
       <ControllerInput
         render={TextInput}

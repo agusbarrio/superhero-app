@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { Formik } from 'formik';
+import { Formik, Form as FormikForm } from 'formik';
 import BasicForm from '../../templates/BasicForm';
 import PropTypes from 'prop-types';
 function Form({
@@ -13,16 +13,14 @@ function Form({
   return (
     <Formik
       initialValues={defaultValues}
-      onSubmit={(values) => {
-        if (_.isFunction(onSubmit)) onSubmit(values);
+      onSubmit={async (values) => {
+        await onSubmit(values);
       }}
       validationSchema={schema}
     >
-      {(props) => (
-        <form onSubmit={props.handleSubmit}>
-          <Template {...templateProps}>{children}</Template>
-        </form>
-      )}
+      <FormikForm>
+        <Template {...templateProps}>{children}</Template>
+      </FormikForm>
     </Formik>
   );
 }
