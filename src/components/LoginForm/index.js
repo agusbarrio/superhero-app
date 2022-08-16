@@ -4,7 +4,6 @@ import ControllerInput from '../ControllerInput';
 import TextInput from '../TextInput';
 import PasswordInput from '../PasswordInput';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 
 function LoginForm({
   onSubmit,
@@ -49,6 +48,10 @@ function LoginForm({
   );
 }
 
-LoginForm.propTypes = { onSubmit: PropTypes.func };
+LoginForm.propTypes = {
+  onSubmit: PropTypes.func,
+  template: PropTypes.any,
+  templateProps: PropTypes.object,
+};
 
 export default LoginForm;

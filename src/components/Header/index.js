@@ -1,7 +1,15 @@
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import PropTypes from 'prop-types';
-
-function Header({ logoutButton = false }) {
+import useUser from '../../hooks/useUser';
+import { useNavigate } from 'react-router-dom';
+import { PATHS } from '../../constants';
+function Header() {
+  const { isLogged, logout } = useUser();
+  const navigate = useNavigate();
+  const clickLogout = () => {
+    logout();
+    navigate(PATHS.HOME, { replace: true });
+  };
   return (
     <AppBar position="static" sx={{ height: 1 }}>
       <Toolbar variant="regular" sx={{ justifyContent: 'space-between' }}>
@@ -28,13 +36,14 @@ function Header({ logoutButton = false }) {
             SuperHero App
           </Typography>
         </Box>
-        {logoutButton && (
+        {isLogged && (
           <Button color="inherit">
             <Typography
               variant="h6"
               component="div"
               align="center"
               sx={{ textTransform: 'none' }}
+              onClick={clickLogout}
             >
               Logout
             </Typography>

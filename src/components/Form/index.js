@@ -1,7 +1,7 @@
-import _ from 'lodash';
 import { Formik, Form as FormikForm } from 'formik';
 import BasicForm from '../../templates/BasicForm';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 function Form({
   onSubmit,
   template: Template = BasicForm,
@@ -14,7 +14,7 @@ function Form({
     <Formik
       initialValues={defaultValues}
       onSubmit={async (values) => {
-        await onSubmit(values);
+        if (_.isFunction(onSubmit)) await onSubmit(values);
       }}
       validationSchema={schema}
     >

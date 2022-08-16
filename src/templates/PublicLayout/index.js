@@ -1,8 +1,8 @@
-import { Container, Grid } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 import Header from '../../components/Header';
 
-function PublicLayout({ children }) {
+function PublicLayout({ children, title }) {
   return (
     <Grid
       container
@@ -31,7 +31,41 @@ function PublicLayout({ children }) {
             alignItems: 'center',
           }}
         >
-          {children}
+          <Grid
+            container
+            spacing={2}
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+          >
+            {Boolean(title) && (
+              <Grid
+                item
+                xs={12}
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                }}
+              >
+                <Typography variant="h4" textAlign="center" component="h1">
+                  {title}
+                </Typography>
+              </Grid>
+            )}
+            <Grid
+              item
+              xs={12}
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              {children}
+            </Grid>
+          </Grid>
         </Container>
       </Grid>
     </Grid>

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useFormikContext } from 'formik';
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 
 function SubmitButton({ children, ...props }) {
   const formikContext = useFormikContext();
@@ -12,7 +12,14 @@ function SubmitButton({ children, ...props }) {
       disabled={formikContext.isSubmitting}
       {...props}
     >
-      {children}
+      <Typography
+        variant="h6"
+        component="div"
+        align="center"
+        sx={{ textTransform: 'none' }}
+      >
+        {children}
+      </Typography>
     </Button>
   );
 }

@@ -3,7 +3,6 @@ import { TextField, IconButton } from '@mui/material';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 function PasswordInput({
   name,
   label,
