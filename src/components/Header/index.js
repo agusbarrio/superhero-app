@@ -23,7 +23,7 @@ function Header() {
           }}
         >
           <img
-            src="bat-svgrepo-com.svg"
+            src="assets/bat-svgrepo-com.svg"
             alt="Super hero app"
             style={{ height: '100%' }}
           />

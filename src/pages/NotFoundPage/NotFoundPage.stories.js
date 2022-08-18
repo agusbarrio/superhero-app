@@ -1,11 +1,11 @@
-import HomePage from '.';
+import NotFoundPage from '.';
 
 export default {
-  title: 'HomePage',
-  component: HomePage,
+  title: 'NotFoundPage',
+  component: NotFoundPage,
 };
 
-const Template = (args) => <HomePage {...args} />;
+const Template = (args) => <NotFoundPage {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};

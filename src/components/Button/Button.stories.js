@@ -1,15 +1,17 @@
-import ControllerInput from '.';
+import Button from '.';
 import { Formik } from 'formik';
 export default {
-  title: 'ControllerInput',
-  component: ControllerInput,
+  title: 'Button',
+  component: Button,
 };
 
 const Template = (args) => (
   <Formik>
-    <ControllerInput {...args} />
+    <Button {...args} />
   </Formik>
 );
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  children: 'Button',
+};

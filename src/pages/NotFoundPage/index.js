@@ -21,7 +21,7 @@ function NotFoundPage() {
       </Button>
       <video
         style={{ width: '100%' }}
-        src="/not-found.mp4"
+        src="/assets/not-found.mp4"
         loop={true}
         autoPlay={true}
         muted={true}
